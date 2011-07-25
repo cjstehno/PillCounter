@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PillCounter</string>
+
+    <string name="startingMg_label">Starting milligrams / Day:</string>
+    <string name="mgPerPill_label">Milligrams / Pill:</string>
+    <string name="reduceMg_label">Reduction Milligrams:</string>
+    <string name="reduceDays_label">Reduction days:</string>
+    <string name="numDays_label">Number of Days:</string>
+    <string name="calc_label">Calculate</string>
+
+    <string name="menu_share_title">Share</string>
+
+    <string name="reduceDays_prompt">How many days per reduction?</string>
+    <string-array name="reduceDays_array">
+        <item>1 days</item>
+        <item>2 days</item>
+        <item>3 days</item>
+        <item>4 days</item>
+        <item>5 days</item>
+        <item>6 days</item>
+        <item>7 days</item>
+        <item>8 days</item>
+        <item>9 days</item>
+        <item>10 days</item>
+        <item>11 days</item>
+        <item>12 days</item>
+        <item>13 days</item>
+        <item>14 days</item>
+        <item>15 days</item>
+    </string-array>
+
+    <string name="numDays_prompt">How many days prescribed?</string>
+    <string-array name="numDays_array">
+        <item>5 days</item>
+        <item>7 days</item>
+        <item>10 days</item>
+        <item>11 days</item>
+        <item>12 days</item>
+        <item>13 days</item>
+        <item>14 days</item>
+        <item>15 days</item>
+        <item>16 days</item>
+        <item>17 days</item>
+        <item>18 days</item>
+        <item>19 days</item>
+        <item>20 days</item>
+        <item>25 days</item>
+        <item>28 days</item>
+        <item>30 days</item>
+        <item>31 days</item>
+        <item>60 days</item>
+        <item>90 days</item>
+    </string-array>
+
+    <color name="label_color">#FF000000</color>
+</resources>

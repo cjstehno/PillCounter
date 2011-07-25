@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout android:id="@+id/schedule_table" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:background="@drawable/background"
+        >
+
+    <TableRow android:id="@+id/schedule_row">
+        <TextView android:text="Day" android:padding="3dip" android:textColor="@color/label_color" />
+        <TextView android:text="mg/day" android:padding="3dip" android:textColor="@color/label_color" />
+        <TextView android:text="pills/day" android:gravity="right" android:padding="3dip" android:textColor="@color/label_color" />
+    </TableRow>
+
+</TableLayout>
