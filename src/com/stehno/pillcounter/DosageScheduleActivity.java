@@ -89,7 +89,7 @@ public class DosageScheduleActivity extends Activity {
 
     private TextView createCell( String value ){
         final TextView cell = new TextView(this);
-        cell.setTextColor(Color.BLACK);
+        cell.setTextColor(Color.WHITE);
         cell.setPadding(3,3,3,3);
         cell.setText(value);
         return cell;
