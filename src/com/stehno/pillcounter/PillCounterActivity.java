@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+/**
+ * Main entry point activity for the PillCounter App.
+ * Provides the dosage information input screen.
+ */
 public class PillCounterActivity extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -21,12 +25,6 @@ public class PillCounterActivity extends Activity implements View.OnClickListene
         reduceDaysSpinner.setAdapter(reduceDaysAdapter);
         reduceDaysSpinner.setSelection(2);
 
-        Spinner numDaysSpinner = (Spinner)findViewById(R.id.numDays_spinner);
-        ArrayAdapter<CharSequence> numDaysAdapter = ArrayAdapter.createFromResource(this, R.array.numDays_array, android.R.layout.simple_spinner_item);
-        numDaysAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        numDaysSpinner.setAdapter(numDaysAdapter);
-        numDaysSpinner.setSelection(6);
-
         final Button button = (Button) findViewById(R.id.calc_button);
         button.setOnClickListener(this);
     }
@@ -36,8 +34,8 @@ public class PillCounterActivity extends Activity implements View.OnClickListene
         final double mgPerPill = extractMgValue(R.id.mgPerPill_text);
         final double reduceMg = extractMgValue(R.id.reduceMg_text);
 
-        final int reduceDays = extractDays(R.id.reduceDays_spinner);
-        final int numDays = extractDays(R.id.numDays_spinner);
+        final int reduceDays = extractReduceDays(R.id.reduceDays_spinner);
+        final int numDays = extractNumDays();
 
         DosageDto dto = DosageCalculator.calculate( startingMg, mgPerPill, reduceMg, reduceDays, numDays );
 
@@ -48,12 +46,18 @@ public class PillCounterActivity extends Activity implements View.OnClickListene
     }
 
     private double extractMgValue( int viewId ){
-        final EditText startingMg = (EditText)findViewById(viewId);
-        final String text = startingMg.getText().toString();
+        final EditText mgvalue = (EditText)findViewById(viewId);
+        final String text = mgvalue.getText().toString();
         return text.isEmpty() ? 0d : Double.valueOf(text);
     }
 
-    private int extractDays( int viewId ){
+    private int extractNumDays(){
+        final EditText days = (EditText)findViewById(R.id.numDays_text);
+        final String text = days.getText().toString();
+        return text.isEmpty() ? 0 : Integer.valueOf(text);
+    }
+
+    private int extractReduceDays( int viewId ){
         Spinner reduceDaysSpinner = (Spinner)findViewById(viewId);
         String value = (String)reduceDaysSpinner.getSelectedItem();
         return Integer.valueOf( value.replace(" days","") );

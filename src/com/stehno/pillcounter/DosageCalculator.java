@@ -9,6 +9,10 @@ public class DosageCalculator {
 
     static DosageDto calculate( double startMg, double mgPerPill, double reduceMg, int reduceDay, int numDays ){
         final DosageDto dto = new DosageDto();
+        dto.setPillMg(mgPerPill);
+        dto.setStartingMg(startMg);
+        dto.setReduceMg(reduceMg);
+        dto.setReduceDays(reduceDay);
 
         int daysOnMg = 0;
         double currentMg = startMg - reduceMg;

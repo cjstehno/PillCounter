@@ -30,28 +30,5 @@
         <item>15 days</item>
     </string-array>
 
-    <string name="numDays_prompt">How many days prescribed?</string>
-    <string-array name="numDays_array">
-        <item>5 days</item>
-        <item>7 days</item>
-        <item>10 days</item>
-        <item>11 days</item>
-        <item>12 days</item>
-        <item>13 days</item>
-        <item>14 days</item>
-        <item>15 days</item>
-        <item>16 days</item>
-        <item>17 days</item>
-        <item>18 days</item>
-        <item>19 days</item>
-        <item>20 days</item>
-        <item>25 days</item>
-        <item>28 days</item>
-        <item>30 days</item>
-        <item>31 days</item>
-        <item>60 days</item>
-        <item>90 days</item>
-    </string-array>
-
     <color name="label_color">#FFFFFFFF</color>
 </resources>

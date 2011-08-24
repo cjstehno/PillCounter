@@ -13,12 +13,12 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 /**
+ * Activity for displaying the results of the dosage calculation.
+ * 
  * @author cjstehno
  */
 public class DosageScheduleActivity extends Activity {
 
-    private static final String UTF_8 = "utf-8";
-    private static final String TEXT_HTML = "text/html";
     private static final DecimalFormat decFormat = new DecimalFormat("0.00");
 
     @Override
@@ -27,6 +27,9 @@ public class DosageScheduleActivity extends Activity {
         setContentView(R.layout.schedule);
 
         final DosageDto dto = (DosageDto)getIntent().getExtras().getSerializable(DosageDto.KEY);
+
+        final TextView descriptionText = (TextView)findViewById(R.id.schedule_description);
+        descriptionText.setText( generateDescription(dto) );
 
         final TableLayout tableLayout = (TableLayout)findViewById(R.id.schedule_table);
 
@@ -46,6 +49,13 @@ public class DosageScheduleActivity extends Activity {
         totalRow.addView( createCell(decFormat.format(dto.getTotalPills())) );
 
         tableLayout.addView(totalRow);
+    }
+
+    private String generateDescription( DosageDto dto ){
+        StringBuilder desc = new StringBuilder(String.valueOf(dto.getTotalPills()));
+        desc.append(" x ").append(decFormat.format(dto.getPillMg())).append("mg pills. Starting at ").append(decFormat.format(dto.getStartingMg())).append("mg/day, reduce by ");
+        desc.append(decFormat.format(dto.getReduceMg())).append("mg every ").append(dto.getReduceDays()).append(" days.");
+        return desc.toString();
     }
 
     @Override
@@ -72,6 +82,8 @@ public class DosageScheduleActivity extends Activity {
 
     private String renderTextTable( DosageDto dto ){
         StringBuilder str = new StringBuilder();
+
+        str.append( generateDescription(dto)).append('\n');
 
         str.append("Day\tmg/day\tpills/day\n");
 
